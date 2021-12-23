@@ -1,5 +1,9 @@
 # bmtrip
 
+
+### api
+1. https://www.showdoc.com.cn/1736747533689448/8107973578705088
+
 ## Project setup
 ```
 yarn install
