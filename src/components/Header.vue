@@ -1,11 +1,11 @@
 <!-- Header -->
 <template>
-  <header class="main">
-    <router-link to="/" tag="i" class="icon">&#xec2e;</router-link>
-    <slot name="title"></slot>
-    <router-link to="/" tag="i" class="icon">&#xe86e;</router-link>
+  <header class="main" :style="`justify-content:${props.title.isCon}`">
+    <router-link to="/" tag="i" class="my-icon">{{props.title.iconL}}</router-link>
+    <p>{{props.title.titleTXT}}</p>
+    <router-link to="/" tag="i" class="my-icon">{{props.title.iconR}}</router-link>
   </header>
-  <div style="height:1rem;"></div>
+  <div style="height: 1rem"></div>
 </template>
 
 <script>
@@ -13,11 +13,17 @@ export default {
   name: "Header",
 };
 </script>
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps({
+  title:Object
+});
+
+</script>
 
 <style lang="scss" scoped>
 .main {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;

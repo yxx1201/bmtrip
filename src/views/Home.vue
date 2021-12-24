@@ -1,24 +1,26 @@
 <!-- Home -->
 <template>
-  <div class="header">
-    <Header>
-      <template v-slot:title>
-        <p>首页</p>
-      </template>
-    </Header>
-  </div>
+  <Header
+    :title="{
+      isCon: 'space-between',
+      iconL: '&#xec2e;',
+      iconR: '&#xe86e;',
+      titleTXT: '首页',
+    }"
+  >
+  </Header>
+  <router-view #default="{ Component }">
+    <keep-alive>
+      <component :is="Component" v-if="$route.meta.keepAlive"></component>
+    </keep-alive>
+    <component :is="Component" v-if="!$route.meta.keepAlive"></component>
+  </router-view>
+  <Footer></Footer>
 </template>
 
-<script>
-import Header from '@/components/Header.vue';
-export default {
-  name: '',
-  components:{
-    Header
-  }
-}
+<script setup>
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

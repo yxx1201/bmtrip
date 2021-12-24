@@ -4,8 +4,36 @@ import Home from '../views/Home.vue'
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    redirect: '/home/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('../views/Home/Index.vue')
+      },
+      {
+        path: 'placeend',
+        component: () => import('../views/Home/PlaceEnd.vue')
+      }
+      ,
+      {
+        path: 'customized',
+        component: () => import('../views/Home/Customized.vue')
+      }
+      , {
+        path: 'search',
+        component: () => import('../views/Home/Search.vue')
+      }
+      , {
+        path: 'my',
+        component: () => import('../views/Home/My.vue')
+      }
+    ],
   },
 ]
 
