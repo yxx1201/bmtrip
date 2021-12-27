@@ -35,6 +35,18 @@ const routes = [
       }
     ],
   },
+  {
+    path:'/twodetail/:id',
+    component:()=>import('../views/TwoDetail.vue')
+  },
+  {
+    path: '/search',
+    component: () => import('../views/Search.vue'),
+  },
+   {
+    path: '/search/index',
+    component: () => import('../views/Search/Index.vue')
+  }
 ]
 
 const router = createRouter({

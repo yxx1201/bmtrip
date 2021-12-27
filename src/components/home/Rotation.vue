@@ -1,18 +1,21 @@
 <!-- Rotation 顶部轮播组件 -->
 <template>
-  <Swiper
-    :modules="state.modules"
-    loop
-    pagination
-    effect="cards"
-    slidesPerView="auto"
-    :autoplay="{ disableOnInteraction: false }"
-    v-if="props.homedatas.data0"
-  >
-    <SwiperSlide v-for="item in props.homedatas.data0" :key="item">
-      <img :src="item.img.url" />
-    </SwiperSlide>
-  </Swiper>
+  <div class="swiper-title">
+    <Swiper
+      id="swiper-title"
+      :modules="state.modules"
+      loop
+      pagination
+      effect="cards"
+      slidesPerView="auto"
+      :autoplay="{ disableOnInteraction: false }"
+      v-if="props.homedata"
+    >
+      <SwiperSlide v-for="item in props.homedata" :key="item">
+        <img :src="item.img.url" />
+      </SwiperSlide>
+    </Swiper>
+  </div>
 </template>
 
 <script>
@@ -33,10 +36,10 @@ import "swiper/modules/pagination/pagination.min.css";
 import "swiper/modules/effect-cards/effect-cards.min.css";
 
 const props = defineProps({
-  homedatas: Object,
+  homedata: Object,
 });
 
-console.log(props.homedatas);
+// console.log(props.homedatas);
 
 const state = reactive({
   modules: [Autoplay, EffectCards, Pagination],
@@ -54,12 +57,17 @@ const state = reactive({
     }
   }
 
+}
+</style>
+<style lang="scss">
   .swiper-pagination-bullet {
     background: #fff;
+    border-radius: 0;
+    height: 2px;
+    width: 6px;
     opacity: 1;
   }
   .swiper-pagination-bullet-active {
     background: red;
   }
-}
 </style>

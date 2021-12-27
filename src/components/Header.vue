@@ -1,9 +1,13 @@
 <!-- Header -->
 <template>
-  <header class="main" :style="`justify-content:${props.title.isCon}`">
-    <router-link to="/" tag="i" class="my-icon">{{props.title.iconL}}</router-link>
-    <p>{{props.title.titleTXT}}</p>
-    <router-link to="/" tag="i" class="my-icon">{{props.title.iconR}}</router-link>
+  <header class="main">
+    <section>
+      <slot name="iconL"></slot>
+    </section>
+    <p>{{ props.title }}</p>
+    <section>
+      <slot name="iconR"></slot>
+    </section>
   </header>
   <div style="height: 1rem"></div>
 </template>
@@ -16,15 +20,15 @@ export default {
 <script setup>
 import { defineProps } from "vue";
 const props = defineProps({
-  title:Object
+  title: String,
 });
-
 </script>
 
 <style lang="scss" scoped>
 .main {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   z-index: 999;
@@ -33,5 +37,9 @@ const props = defineProps({
 }
 .icon {
   font-size: 0.46rem;
+}
+span{
+  display: block;
+  width: 20px;
 }
 </style>

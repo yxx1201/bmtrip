@@ -1,5 +1,6 @@
 <!-- Footer -->
 <template>
+<div style="width: 100vw; height:1.6rem;"></div>
   <footer class="main">
     <Tabbar
       v-model="state.active"
@@ -98,6 +99,7 @@ function FiconTab(e) {
   justify-content: space-between;
   align-items: center;
   padding: 2vw 5vw;
+  z-index: 999;
 }
 </style>
 <style lang="scss">
